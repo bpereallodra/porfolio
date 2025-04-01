@@ -28,13 +28,13 @@ export default function Portfolio() {
   // Simulando el div de proyectos
   const projects = [
      { title: 'Airbnb Property Profitability Analysis',
-      image: '/airbnb.jpg', 
+      image: './airbnb.jpg', 
       description: 'Tourism rental market analysis in Valencia aimed at identifying high-yield areas and ideal property characteristics. Data was cleaned and structured to be cross-referenced with price per square meter from Idealista, generating insights on the most profitable neighborhoods and property types to maximize return per stay.' },
      { title: 'Solar Plant Efficiency Loss Diagnosis', 
-      image: '/solar.jpg',
+      image: './solar.jpg',
       description: 'Performance analysis of two solar power plants located in the Valencian Community to identify operational inefficiencies. Based on system behavior and energy output, potential malfunctions and performance drops were detected, enabling actionable improvements to minimize economic losses.' },
      { title: 'E-commerce Conversion Optimization Strategy', 
-      image: '/ecommerce.jpg',
+      image: './ecommerce.jpg',
       description: 'Data-driven audit of an e-commerce platform facing stagnant performance. By analyzing user behavior, conversion funnels, and RFM segmentation, tailored CRO actions were proposed to increase qualified traffic, improve conversion rates, and raise average order value—ultimately maximizing revenue.'
  },
      //{ title: 'Project 4', description: 'Description for Project 4' },
@@ -57,7 +57,7 @@ export default function Portfolio() {
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         <div className="flex items-center space-x-4">
           <img
-            src="/foto.jpg"
+            src="./foto.jpg"
             alt="Perfil"
             className="w-10 h-10 rounded-full ring-2 ring-white-500 ring-offset-2 ring-offset-[var(--darkBlue)]"
     />
