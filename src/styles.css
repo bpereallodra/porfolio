@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* In your global CSS file or a Tailwind custom CSS file */
+:root {
+  --darkLighter: #4ECDC4; 
+  --dark: #1B263B;
+  --darkBlue: #0D1B2A;
+  --headerBg:#0D1B2A;
+  --amarillo: #F2AB27
+}
