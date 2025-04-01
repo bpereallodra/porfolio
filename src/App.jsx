@@ -240,7 +240,7 @@ export default function Portfolio() {
 
         <footer className="container mx-auto px-4 py-8 flex justify-center space-x-6">
           <motion.a
-            href="https://github.com/J0anM4rc"
+            href="https://github.com/bpereallodra"
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.2 }}
