@@ -33,7 +33,7 @@ export default function Portfolio() {
      { title: 'Solar Plant Efficiency Loss Diagnosis', 
       image: './solar.jpg',
       description: 'Performance analysis of two solar power plants located in the Valencian Community to identify operational inefficiencies. Based on system behavior and energy output, potential malfunctions and performance drops were detected, enabling actionable improvements to minimize economic losses.' },
-     { title: 'E-commerce Conversion Optimization Strategy', 
+     { title: 'E-commerce Conversion Optimization', 
       image: './ecommerce.jpg',
       description: 'Data-driven audit of an e-commerce platform facing stagnant performance. By analyzing user behavior, conversion funnels, and RFM segmentation, tailored CRO actions were proposed to increase qualified traffic, improve conversion rates, and raise average order value—ultimately maximizing revenue.'
  },
@@ -76,7 +76,7 @@ export default function Portfolio() {
           </motion.a>
           </div>
           <nav className="hidden md:flex space-x-8">
-            {['About', 'Projects', 'Contact'].map((item) => (
+            {['About me', 'Projects', 'Contact'].map((item) => (
               <motion.a
                 key={item}
                 href={`#${item.toLowerCase()}`}
@@ -135,7 +135,7 @@ export default function Portfolio() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            Data scientist who <span className='text-cyan-400 font-bold'>enjoys</span> unlocking the power of  <span className='text-cyan-400 font-bold'>data</span><br></br> to drive <span className='font-bold text-cyan-400'>intelligent</span> decisions and innovation.
+            Data scientist who <span className='text-cyan-400 font-bold'>enjoys</span> unlocking the power of  <span className='text-cyan-400 font-bold'>data</span><br className="hidden md:block" /> to drive <span className='font-bold text-cyan-400'>intelligent</span> decisions and innovation.
           </motion.p>
         </section>
 
@@ -153,9 +153,9 @@ export default function Portfolio() {
               transition={{ duration: 0.5 }}
             >
               <h3 className="text-2xl font-bold font-sans mb-6">Get to know me!</h3>
-              <p className="text-white">I'm a software developer proficient in JavaScript and the web. I'm passionate about web performance, accessibility, mentoring, user & developer experience.</p>
-              <p className="text-white mt-4"> Beyond university, I've pursued self-learning, hackathons, and courses, sharpening my proficiency in JavaScript and web technologies.</p>
-              <p className="text-white mt-4">In my free time, I build side projects and explore new tech. Open to opportunities where I can learn, grow, and contribute.</p>
+              <p className="text-white">I’m a data scientist who enjoys digging into data and building models that tell a story. I work mostly with Python and love exploring machine learning, analytics, and data visualization.</p>
+              <p className="text-white mt-4"> Currently, I teach computer science in vocational training programs, where I help students build strong foundations in programming, data, and software development.</p>
+              <p className="text-white mt-4">In my free time, I build personal projects and dive into new tools and techniques. I’m always curious, always learning—and open to new opportunities where I can grow and make an impact through data.</p>
               {/* <ul className="list-disc ml-4 mt-4 list-none list-inside text-gray-400">
                 <li className=" ">
                   <span className="mr-2 font-semibold">2021 - Present</span> 
@@ -223,18 +223,18 @@ export default function Portfolio() {
       opacity-0 
       transition-opacity duration-300 
       group-hover:opacity-100
-      hidden md:flex
+      hidden lg:flex
     ">
       <h2 className="text-xl font-semibold text-white">
         Description &amp; Goals
       </h2>
-      <p className="text-white p-4 text-left mt-4">
+      <p className="text-white p-4 text-left">
         {project.description}
       </p>
     </div>
   </div>
             {/* Bloque fijo debajo de la imagen para móviles */}
-  <div className="block md:hidden bg-black bg-opacity-75 p-4">
+<div className="block lg:hidden bg-black bg-opacity-75 p-4">
     <h2 className="text-xl font-semibold text-white">
       Description &amp; Goals
     </h2>
