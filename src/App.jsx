@@ -140,8 +140,8 @@ export default function Portfolio() {
         </section>
 
 
-      <div className='hidden md:flex md:flex-col bg-[var(--dark)]'>
-        <section id="about" className="container mx-auto px-4 py-40">
+      
+        <section id="about" className="container mx-auto px-4 py-40 bg-[var(--dark)]">
           <h2 className="text-5xl text-center font-semibold font-sans mb-8">About me</h2>
           {/* Barra cian */}
           <div className="mx-auto w-16 h-2 bg-cyan-400 mb-8 rounded-md"></div>
@@ -186,7 +186,7 @@ export default function Portfolio() {
           </div>
         </section>
 
-        </div>
+      
         {/*Simulando el div de proyectos */}
         
         
@@ -204,35 +204,45 @@ export default function Portfolio() {
         transition={{ duration: 0.5, delay: index * 0.1 }}
         whileHover={{ scale: 1.05 }}
       >
-        {/* Título arriba, siempre visible */}
-        <h3 className="text-xl font-semibold p-4 text-center">{project.title}</h3>
-        
-        {/* Contenedor de la imagen + overlay */}
-        <div className="relative">
-          <img
-            src={project.image}
-            alt={project.title}
-            className="w-full h-68 object-cover rounded"
-          />
-         {/* Overlay que aparece al hacer hover */}
-         <div className="
-            absolute inset-0 
-            bg-black bg-opacity-75 
-            flex flex-col items-center justify-center gap-2
-            opacity-0 
-            transition-opacity duration-300 
-            group-hover:opacity-100
-          ">
-            {/* Título arriba */}
-            <h2 className="text-xl font-semibold p-4 text-white">
-              Description &amp; Goals
-            </h2>
-            {/* Descripción abajo */}
-            <p className="text-white p-4 text-center">
-              {project.description}
-            </p>
-          </div>
-        </div>
+       <div className="bg-gray-900 rounded-lg overflow-hidden relative group">
+  {/* Título siempre visible */}
+  <h3 className="text-xl font-semibold p-4 text-center">{project.title}</h3>
+  
+  {/* Contenedor de la imagen */}
+  <div className="relative">
+    <img
+      src={project.image}
+      alt={project.title}
+      className="w-full h-68 object-cover rounded"
+    />
+    {/* Overlay para pantallas md y mayores */}
+    <div className="
+      absolute inset-0 
+      bg-black bg-opacity-75 
+      flex flex-col items-center justify-center gap-2
+      opacity-0 
+      transition-opacity duration-300 
+      group-hover:opacity-100
+      hidden md:flex
+    ">
+      <h2 className="text-xl font-semibold text-white">
+        Description &amp; Goals
+      </h2>
+      <p className="text-white p-4 text-left mt-4">
+        {project.description}
+      </p>
+    </div>
+  </div>
+            {/* Bloque fijo debajo de la imagen para móviles */}
+  <div className="block md:hidden bg-black bg-opacity-75 p-4">
+    <h2 className="text-xl font-semibold text-white">
+      Description &amp; Goals
+    </h2>
+    <p className="text-white text-left mt-4">
+      {project.description}
+    </p>
+  </div>
+</div>
       </motion.div>
     ))}
   </div>
