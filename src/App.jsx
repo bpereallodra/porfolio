@@ -1,5 +1,5 @@
 'use client'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { Menu, X, Github, Linkedin, Mail,  } from 'lucide-react'
 
@@ -8,6 +8,7 @@ import { Menu, X, Github, Linkedin, Mail,  } from 'lucide-react'
 export default function Portfolio() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isHeaderVisible, setIsHeaderVisible] = useState(false);
+  const tableauContainer = useRef(null)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,6 +26,48 @@ export default function Portfolio() {
     return () => window.removeEventListener('resize', handleResize)
   }, [])
 
+   {/* Insertando el gráfico de Tableau*/}
+  useEffect(() => {
+    if (tableauContainer.current) {
+      tableauContainer.current.innerHTML = `
+        <div class='tableauPlaceholder' id='viz1744321844619' style='position: relative'>
+          <noscript>
+            <a href='#'>
+              <img alt='Dashboard 1' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ca&#47;Caso_Hoteles_17211267806660&#47;Dashboard1&#47;1_rss.png' style='border: none' />
+            </a>
+          </noscript>
+          <object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+            <param name='embed_code_version' value='3' />
+            <param name='site_root' value='' />
+            <param name='name' value='ejercicios_dashboards_17209755219650/Dashboard1' />
+            <param name='tabs' value='no' />
+            <param name='toolbar' value='yes' />
+            <param name='language' value='es-ES' />
+          </object>
+        </div>
+      `
+
+      const divElement = document.getElementById('viz1744321844619')
+      const vizElement = divElement.getElementsByTagName('object')[0]
+
+      if (divElement.offsetWidth > 800) {
+        vizElement.style.width = '1366px'
+        vizElement.style.height = '795px'
+      } else if (divElement.offsetWidth > 500) {
+        vizElement.style.width = '1366px'
+        vizElement.style.height = '795px'
+      } else {
+        vizElement.style.width = '100%'
+        vizElement.style.height = '1577px'
+      }
+
+      const scriptElement = document.createElement('script')
+      scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js'
+      vizElement.parentNode.insertBefore(scriptElement, vizElement)
+    }
+  }, [])
+
   // Simulando el div de proyectos
   const projects = [
      { title: 'Airbnb Property Profitability Analysis',
@@ -34,7 +77,7 @@ export default function Portfolio() {
       image: './solar.jpg',
       description: 'Performance analysis of two solar power plants located in the Valencian Community to identify operational inefficiencies. Based on system behavior and energy output, potential malfunctions and performance drops were detected, enabling actionable improvements to minimize economic losses.' },
      { title: 'E-commerce Conversion Optimization', 
-      image: './ecommerce.jpg',
+      image: './ecommerce1.jpg',
       description: 'Data-driven audit of an e-commerce platform facing stagnant performance. By analyzing user behavior, conversion funnels, and RFM segmentation, tailored CRO actions were proposed to increase qualified traffic, improve conversion rates, and raise average order value—ultimately maximizing revenue.'
  },
      //{ title: 'Project 4', description: 'Description for Project 4' },
@@ -72,7 +115,7 @@ export default function Portfolio() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
           >
-            Borja A. Perea Llodrá
+            Borja A. Perea Llodrà
           </motion.a>
           </div>
           <nav className="hidden md:flex space-x-8">
@@ -247,6 +290,17 @@ export default function Portfolio() {
     ))}
   </div>
 </section>
+
+{ /* Tableau Dashboard 
+<section className="container mx-auto px-4 py-20">
+  <h2 className="text-5xl text-center font-semibold font-sans mb-8">Tableau Dashboard</h2>
+  <div className="mx-auto w-16 h-2 bg-cyan-400 mb-8 rounded-md"></div>
+  <div 
+  ref={tableauContainer} 
+  className="w-full max-w-[1400px] mx-auto flex justify-center"
+></div>
+</section>
+*/}
 
         <footer className="container mx-auto px-4 py-8 flex justify-center space-x-6">
           <motion.a
